@@ -1,0 +1,40 @@
+> const arr = [1,2,3]
+  undefined
+> arr
+  (3) [1, 2, 3]
+> arr.sing = function(){console.log("JA JA JA JA")}
+  ƒ (){console.log("JA JA JA JA")}
+> arr
+  (3) [1, 2, 3, sing: ƒ]	//Since we added sing function to the arr prototype, every array object created inherits the sing function.  
+> arr.push(5) 			// but the push function cannot be seen in the visible methods because its in the _proto_ method 
+  4
+> arr
+  (4) [1, 2, 3, 5, sing: ƒ] 
+> const arr2 = [3,4,5]
+  undefined
+> arr2
+ (3) [3, 4, 5]
+> Array.prototype
+  [constructor: ƒ, concat: ƒ, copyWithin: ƒ, fill: ƒ, find: ƒ, …]
+> String.prototype
+  String {'', yell: ƒ, constructor: ƒ, anchor: ƒ, big: ƒ, …}
+> Array.prototype.grumpus = () => alert("go away");
+  () => alert("go away")
+> Array.prototype
+  [grumpus: ƒ, constructor: ƒ, concat: ƒ, copyWithin: ƒ, fill: ƒ, …]
+> const arr3 = [1,2,3,4,5,6]
+  undefined
+> arr3
+  (6) [1, 2, 3, 4, 5, 6]
+> String.prototype.sayForever = function () {alert ("Free tibet")}
+  ƒ () {alert ("Free tibet")}
+> String.prototype;
+  String {'', yell: ƒ, sayForever: ƒ, constructor: ƒ, anchor: ƒ, …}
+> "Ngawang".sayForever;
+   ƒ () {alert ("Free tibet")}
+>  String.prototype.yell = function () { return this}
+   ƒ () { return this}
+> "hello".yell
+   ƒ () { return this}
+> "Ngawang".sayForever();
+   Free tibet
